@@ -15,7 +15,7 @@
             background-color: #000;
         }
 
-        /* --- SECCIÓN 1: PORTADA (Adaptable) --- */
+        /* --- PORTADA CON EFECTO LED --- */
         .portada {
             background-color: #000;
             height: 100vh;
@@ -23,128 +23,103 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
         }
 
         .logo-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.4s ease-in-out;
             padding: 20px;
-            border-radius: 15px;
-        }
-
-        .logo-wrapper:hover {
-            box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
 
         .logo-cn {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(80px, 18vw, 150px); /* Tamaño fluido */
+            font-size: clamp(80px, 15vw, 150px);
             color: #FF0000;
             line-height: 0.8;
-            letter-spacing: 5px;
             transition: 0.3s;
-            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.2));
         }
 
         .logo-wrapper:hover .logo-cn {
-            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1)) drop-shadow(0 0 30px rgba(255, 0, 0, 0.8));
+            filter: drop-shadow(0 0 20px #FF0000);
         }
 
         .logo-equipamientos {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(18px, 4vw, 40px); /* Tamaño fluido */
+            font-size: clamp(16px, 4vw, 40px);
             color: #FFFFFF;
             text-transform: uppercase;
             letter-spacing: clamp(5px, 2vw, 15px);
-            font-weight: 700;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
-        /* --- SECCIÓN 2: HISTORIA --- */
-        .historia-seccion {
-            background-color: #000;
-            padding: 80px 10%;
-        }
-
-        .historia-texto {
-            max-width: 800px;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-style: italic;
-            color: #d1d1d1;
-            line-height: 2;
-        }
-
-        /* --- SECCIÓN 3: TECNOLOGÍA (Responsivo) --- */
+        /* --- TECNOLOGÍA (CORREGIDO PARA MÓVIL) --- */
         .tecnologia {
             background-color: #F5F5F0; 
-            padding: 80px 8%;
+            padding: 60px 5%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
+            gap: 30px;
         }
 
-        .tec-texto { flex: 1; min-width: 300px; }
-        .tec-texto h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 38px); color: #1a1a1a; }
+        .tec-texto { text-align: center; width: 100%; }
+        .tec-texto h2 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 15px; }
 
         .tec-imagenes { 
-            flex: 1.2; 
             display: flex; 
+            flex-wrap: wrap; /* Permite que bajen si no entran */
             gap: 15px; 
+            justify-content: center;
             width: 100%;
         }
 
         .img-cnc { 
-            width: 50%; 
-            height: clamp(200px, 40vh, 350px); 
+            width: 100%; /* Por defecto una bajo la otra en móvil */
+            max-width: 450px;
+            height: 300px;
             object-fit: cover; 
-            border: 1px solid #dcdcdc; 
+            border-radius: 5px;
         }
 
-        /* --- SECCIÓN 4: CARRUSEL LOGOS --- */
-        .carrusel-section {
-            background-color: #fff;
-            padding: 50px 0;
-            overflow: hidden;
-        }
-
-        .slider { width: 100%; height: 120px; position: relative; overflow: hidden; display: flex; align-items: center; }
-        .slider-track { display: flex; width: calc(180px * 20); animation: scroll 35s linear infinite; }
-        .slide { width: 180px; display: flex; justify-content: center; padding: 0 10px; }
-        .slide img { max-width: 130px; max-height: 70px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; }
-
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-180px * 10)); } }
-
-        /* --- SECCIÓN 5: EQUIPO (Responsivo) --- */
+        /* --- EQUIPO (CORREGIDO PARA FILA) --- */
         .equipo {
-            background: linear-gradient(145deg, #0a0a0a 0%, #000000 100%);
-            padding: 80px 5%;
+            background: #000;
+            padding: 60px 5%;
             text-align: center;
             color: white;
         }
 
         .equipo-grid { 
             display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            flex-wrap: wrap; 
-            margin-top: 40px; 
+            flex-wrap: nowrap; /* Fuerza una al lado de la otra */
+            overflow-x: auto; /* Permite scroll horizontal si son muy grandes */
+            gap: 20px; 
+            padding: 20px 0;
+            justify-content: flex-start;
         }
 
-        .miembro { width: 250px; }
-        .foto-perfil { width: 180px; height: 180px; border-radius: 50%; border: 3px solid #FFFFFF; margin: 0 auto 15px; overflow: hidden; }
+        .miembro { 
+            flex: 0 0 250px; /* Tamaño fijo para cada miembro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .foto-perfil { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            border: 3px solid #FFFFFF; 
+            overflow: hidden; 
+            margin-bottom: 15px;
+        }
+        
         .foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- SECCIÓN 6: FOOTER ADAPTABLE --- */
+        /* --- FOOTER REORGANIZADO --- */
         .footer {
             background-color: #000;
             color: white;
-            padding: 60px 10%;
+            padding: 40px 10%;
             border-top: 1px solid #222;
         }
 
@@ -152,40 +127,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .footer-column { flex: 1; padding: 0 20px; }
-        .footer-column h4 { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #FF0000; margin-bottom: 15px; text-transform: uppercase; }
+        .footer-column { flex: 1; min-width: 250px; text-align: center; }
+        .footer-column h4 { color: #FF0000; margin-bottom: 10px; }
         .footer-column p { font-size: 14px; color: #bbb; margin: 5px 0; }
 
         .footer-divider {
             width: 2px;
             background-color: #ffffff;
-            height: 100px;
+            height: 80px;
         }
 
         /* WHATSAPP */
         .whatsapp-float {
-            position: fixed; width: 55px; height: 55px; bottom: 20px; right: 20px;
+            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px;
             background-color: #25d366; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; z-index: 1000;
         }
-        .whatsapp-icon { width: 30px; height: 30px; }
 
-        /* --- MEDIA QUERIES PARA MÓVIL --- */
-        @media (max-width: 768px) {
-            .tecnologia { padding: 50px 5%; text-align: center; }
-            .tec-imagenes { flex-direction: column; }
-            .img-cnc { width: 100%; height: 250px; }
-            
-            .footer-container { flex-direction: column; text-align: center; }
-            .footer-divider { display: none; } /* Ocultamos la línea en móvil */
-            .footer-column { padding: 20px 0; width: 100%; }
-            
-            .historia-seccion { padding: 60px 8%; text-align: center; }
+        /* --- AJUSTES TABLETA/PC --- */
+        @media (min-width: 768px) {
+            .tecnologia { flex-direction: row; text-align: left; }
+            .img-cnc { width: calc(50% - 15px); }
+            .equipo-grid { justify-content: center; overflow-x: visible; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-divider { display: none; }
+            .footer-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -198,43 +170,14 @@
         </div>
     </section>
 
-    <section class="historia-seccion">
-        <p class="historia-texto">
-            De parte de CN Equipamientos: <br>
-            “CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería... Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”
-        </p>
-    </section>
-
     <section class="tecnologia">
         <div class="tec-texto">
             <h2>Tecnología y precisión en CNC</h2>
             <p>Transformamos tus ideas en realidad para darle más vida a tu hogar.</p>
         </div>
         <div class="tec-imagenes">
-            <img src="imagenes/kerfing.jpg" alt="CNC 1" class="img-cnc">
-            <img src="imagenes/curvas.jpg" alt="CNC 2" class="img-cnc">
-        </div>
-    </section>
-
-    <section class="carrusel-section">
-        <div class="slider">
-            <div class="slider-track">
-                <div class="slide"><img src="imagenes/sucan.jpg" alt="Sucan"></div>
-                <div class="slide"><img src="imagenes/merrell.jpg" alt="Merrell"></div>
-                <div class="slide"><img src="imagenes/lolita.jpg" alt="Lolita"></div>
-                <div class="slide"><img src="imagenes/columbia.jpg" alt="Columbia"></div>
-                <div class="slide"><img src="imagenes/proyecto5.jpg" alt="5"></div>
-                <div class="slide"><img src="imagenes/proyecto6.jpg" alt="6"></div>
-                <div class="slide"><img src="imagenes/proyecto7.jpg" alt="7"></div>
-                <div class="slide"><img src="imagenes/proyecto8.jpg" alt="8"></div>
-                <div class="slide"><img src="imagenes/proyecto9.jpg" alt="9"></div>
-                <div class="slide"><img src="imagenes/proyecto10.jpg" alt="10"></div>
-                <div class="slide"><img src="imagenes/sucan.jpg"></div>
-                <div class="slide"><img src="imagenes/merrell.jpg"></div>
-                <div class="slide"><img src="imagenes/lolita.jpg"></div>
-                <div class="slide"><img src="imagenes/columbia.jpg"></div>
-                <div class="slide"><img src="imagenes/proyecto5.jpg"></div>
-            </div>
+            <img src="imagenes/kerfing.jpg" alt="Tecnología CNC" class="img-cnc">
+            <img src="imagenes/curvas.jpg" alt="Diseño Paramétrico" class="img-cnc">
         </div>
     </section>
 
@@ -242,17 +185,17 @@
         <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Nuestro Equipo</h2>
         <div class="equipo-grid">
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio"></div>
+                <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio Narez"></div>
                 <h3>Mauricio Narez</h3>
                 <p>Director</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg" alt="Valentina"></div>
+                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg" alt="Valentina Narez"></div>
                 <h3>Valentina Narez</h3>
                 <p>Taller, Administración y Diseño</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/santiago.jpg" alt="Santiago"></div>
+                <div class="foto-perfil"><img src="imagenes/santiago.jpg" alt="Santiago Nárez"></div>
                 <h3>Santiago Nárez</h3>
                 <p>Encargado de Taller</p>
             </div>
@@ -266,22 +209,17 @@
                 <p>Montevideo, Uruguay</p>
                 <p>Dr. Vicente Basagoity 4425</p>
             </div>
-
             <div class="footer-divider"></div>
-
             <div class="footer-column">
                 <h4>Contactos</h4>
-                <p>Teléfono: 095 576 448</p>
-                <p>Correo: cnequipamientos@cnequipamientos.com</p>
+                <p>095 576 448</p>
+                <p>cnequipamientos@cnequipamientos.com</p>
             </div>
-        </div>
-        <div style="text-align: center; margin-top: 40px; font-size: 11px; color: #444; letter-spacing: 1px;">
-            &copy; 2024 CN EQUIPAMIENTOS
         </div>
     </footer>
 
     <a href="https://wa.me/59895576448" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
     </a>
 
 </body>
