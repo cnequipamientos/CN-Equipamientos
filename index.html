@@ -78,35 +78,60 @@
 
         .tec-imagenes { flex: 1.2; display: flex; gap: 20px; min-width: 300px; }
         .img-cnc {
-            background-color: #e0e0da;
             width: 100%;
             height: 350px;
             object-fit: cover;
             border: 1px solid #dcdcdc;
+            background-color: #ddd;
         }
 
-        /* --- SECCIÓN 4: CARRUSEL --- */
+        /* --- SECCIÓN 4: CARRUSEL INFINITO (10 Fotos) --- */
         .carrusel-section {
             background-color: #fff;
             padding: 80px 0;
+            overflow: hidden; /* Oculta lo que sale de la pantalla */
             text-align: center;
         }
 
-        .carrusel-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 40px;
-            scroll-snap-type: x mandatory;
+        .slider {
+            width: 100%;
+            height: 400px;
+            margin: auto;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
         }
 
-        .carrusel-item {
-            min-width: 350px;
-            height: 450px;
-            background-color: #f0f0f0;
-            scroll-snap-align: center;
-            border-radius: 5px;
+        .slider-track {
+            display: flex;
+            width: calc(300px * 20); /* Doble de fotos para el efecto infinito */
+            animation: scroll 40s linear infinite; /* 40s para que sea lento */
+        }
+
+        .slider-track:hover {
+            animation-play-state: paused; /* Se detiene al pasar el mouse */
+        }
+
+        .slide {
+            width: 300px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-300px * 10)); }
         }
 
         /* --- SECCIÓN 5: EQUIPO (Mármol Negro) --- */
@@ -133,6 +158,7 @@
             border: 4px solid #FFFFFF;
             margin: 0 auto 20px;
             overflow: hidden;
+            background-color: #222;
         }
 
         .foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
@@ -147,7 +173,7 @@
         }
 
         .footer h3 { font-family: 'Playfair Display', serif; color: #FF0000; font-size: 24px; }
-        .footer p { font-size: 16px; color: #bbb; line-height: 1.6; }
+        .footer p { font-size: 16px; color: #bbb; line-height: 1.6; margin: 5px 0; }
 
         /* WHATSAPP */
         .whatsapp-float {
@@ -163,7 +189,9 @@
             justify-content: center;
             z-index: 1000;
             box-shadow: 2px 5px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
         .whatsapp-icon { width: 35px; height: 35px; }
 
     </style>
@@ -197,33 +225,50 @@
     </section>
 
     <section class="carrusel-section">
-        <h2 style="font-family: 'Playfair Display';">Nuestros Proyectos</h2>
-        <div class="carrusel-container">
-            <img src="imagenes/proyecto1.jpg" class="carrusel-item" alt="Proyecto 1">
-            <img src="imagenes/proyecto2.jpg" class="carrusel-item" alt="Proyecto 2">
-            <img src="imagenes/proyecto3.jpg" class="carrusel-item" alt="Proyecto 3">
-            <img src="imagenes/proyecto4.jpg" class="carrusel-item" alt="Proyecto 4">
-            <img src="imagenes/proyecto5.jpg" class="carrusel-item" alt="Proyecto 5">
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Nuestros Proyectos</h2>
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide"><img src="imagenes/proyecto1.jpg" alt="1"></div>
+                <div class="slide"><img src="imagenes/proyecto2.jpg" alt="2"></div>
+                <div class="slide"><img src="imagenes/proyecto3.jpg" alt="3"></div>
+                <div class="slide"><img src="imagenes/proyecto4.jpg" alt="4"></div>
+                <div class="slide"><img src="imagenes/proyecto5.jpg" alt="5"></div>
+                <div class="slide"><img src="imagenes/proyecto6.jpg" alt="6"></div>
+                <div class="slide"><img src="imagenes/proyecto7.jpg" alt="7"></div>
+                <div class="slide"><img src="imagenes/proyecto8.jpg" alt="8"></div>
+                <div class="slide"><img src="imagenes/proyecto9.jpg" alt="9"></div>
+                <div class="slide"><img src="imagenes/proyecto10.jpg" alt="10"></div>
+                <div class="slide"><img src="imagenes/proyecto1.jpg" alt="1"></div>
+                <div class="slide"><img src="imagenes/proyecto2.jpg" alt="2"></div>
+                <div class="slide"><img src="imagenes/proyecto3.jpg" alt="3"></div>
+                <div class="slide"><img src="imagenes/proyecto4.jpg" alt="4"></div>
+                <div class="slide"><img src="imagenes/proyecto5.jpg" alt="5"></div>
+                <div class="slide"><img src="imagenes/proyecto6.jpg" alt="6"></div>
+                <div class="slide"><img src="imagenes/proyecto7.jpg" alt="7"></div>
+                <div class="slide"><img src="imagenes/proyecto8.jpg" alt="8"></div>
+                <div class="slide"><img src="imagenes/proyecto9.jpg" alt="9"></div>
+                <div class="slide"><img src="imagenes/proyecto10.jpg" alt="10"></div>
+            </div>
         </div>
     </section>
 
     <section class="equipo">
-        <h2 style="font-family: 'Playfair Display';">Nuestro Equipo</h2>
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 40px;">Nuestro Equipo</h2>
         <div class="equipo-grid">
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio Narez"></div>
+                <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio"></div>
                 <h3>Mauricio Narez</h3>
                 <p>Director</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg" alt="Valentina Narez"></div>
+                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg" alt="Valentina"></div>
                 <h3>Valentina Narez</h3>
-                <p>Encargada de taller, administración y diseño</p>
+                <p>Taller, Administración y Diseño</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/santiago.jpg" alt="Santiago Nárez"></div>
+                <div class="foto-perfil"><img src="imagenes/santiago.jpg" alt="Santiago"></div>
                 <h3>Santiago Nárez</h3>
-                <p>Encargado de taller</p>
+                <p>Encargado de Taller</p>
             </div>
         </div>
     </section>
@@ -233,8 +278,8 @@
         <p>Montevideo, Uruguay</p>
         <p>Dr. Vicente Basagoity 4425</p>
         <p>Teléfono: 095 576 448</p>
-        <div style="margin-top: 20px; font-size: 12px; color: #555;">
-            &copy; 2024 CN Equipamientos - Todos los derechos reservados.
+        <div style="margin-top: 30px; font-size: 12px; color: #444;">
+            &copy; 2024 CN Equipamientos - Calidad en Carpintería
         </div>
     </footer>
 
