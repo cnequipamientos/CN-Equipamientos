@@ -12,62 +12,59 @@
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            background-color: #000;
         }
 
-        /* --- SECCIÓN 1: HERO / INICIO (Fondo Negro) --- */
-        .hero {
+        /* --- SECCIÓN 1: PORTADA (Solo Logo) --- */
+        .portada {
             background-color: #000;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
-            padding: 40px 20px;
-        }
-
-        .logo-container {
-            margin-bottom: 60px;
         }
 
         .logo-cn {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(80px, 15vw, 120px);
+            font-size: clamp(100px, 20vw, 150px);
             color: #FF0000;
-            display: block;
             line-height: 0.8;
             letter-spacing: 5px;
+            display: block;
         }
 
         .logo-equipamientos {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(20px, 4vw, 35px);
+            font-size: clamp(25px, 5vw, 45px);
             color: #FFFFFF;
             text-transform: uppercase;
-            letter-spacing: 10px;
+            letter-spacing: 15px;
             font-weight: 700;
         }
 
-        .historia-container {
-            max-width: 700px;
-            text-align: left;
-            align-self: flex-start;
-            margin-left: 5%;
-            margin-top: 40px;
+        /* --- SECCIÓN 2: LA HISTORIA --- */
+        .historia-seccion {
+            background-color: #000;
+            padding: 100px 10%;
+            display: flex;
+            justify-content: flex-start;
         }
 
         .historia-texto {
+            max-width: 800px;
             font-family: Arial, sans-serif;
-            font-size: 12px;
+            font-size: 14px;
             font-style: italic;
             color: #d1d1d1;
-            line-height: 1.8;
+            line-height: 2;
+            text-align: left;
         }
 
-        /* --- SECCIÓN 2: TECNOLOGÍA (Blanco Hueso) --- */
+        /* --- SECCIÓN 3: TECNOLOGÍA (Blanco Hueso) --- */
         .tecnologia {
-            background-color: #F5F5F0; /* Blanco Hueso */
+            background-color: #F5F5F0; 
             padding: 100px 8%;
             display: flex;
             align-items: center;
@@ -76,38 +73,19 @@
             gap: 40px;
         }
 
-        .tec-texto {
-            flex: 1;
-            min-width: 300px;
-        }
+        .tec-texto { flex: 1; min-width: 300px; }
+        .tec-texto h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #1a1a1a; }
 
-        .tec-texto h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-        }
-
-        .tec-imagenes {
-            flex: 1.2;
-            display: flex;
-            gap: 20px;
-            min-width: 300px;
-        }
-
-        .placeholder-img {
+        .tec-imagenes { flex: 1.2; display: flex; gap: 20px; min-width: 300px; }
+        .img-cnc {
             background-color: #e0e0da;
             width: 100%;
             height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
             border: 1px solid #dcdcdc;
-            color: #888;
-            font-weight: bold;
         }
 
-        /* --- SECCIÓN 3: CARRUSEL --- */
+        /* --- SECCIÓN 4: CARRUSEL --- */
         .carrusel-section {
             background-color: #fff;
             padding: 80px 0;
@@ -120,85 +98,62 @@
             gap: 20px;
             padding: 40px;
             scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
         }
 
         .carrusel-item {
             min-width: 350px;
             height: 450px;
             background-color: #f0f0f0;
-            flex-shrink: 0;
             scroll-snap-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             border-radius: 5px;
+            object-fit: cover;
         }
 
-        /* --- SECCIÓN 4: EQUIPO (Efecto Mármol Negro) --- */
+        /* --- SECCIÓN 5: EQUIPO (Mármol Negro) --- */
         .equipo {
-            background-color: #000;
-            /* Simulación de mármol con gradientes y líneas gris oscuro */
-            background-image: 
-                linear-gradient(125deg, #0a0a0a 0%, #000000 50%, #0d0d0d 100%),
-                repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(50, 50, 50, 0.1) 101px, rgba(50, 50, 50, 0.1) 102px);
-            border-top: 2px solid #222;
+            background: linear-gradient(145deg, #0a0a0a 0%, #000000 100%);
             padding: 100px 5%;
             text-align: center;
             color: white;
+            border-top: 1px solid #333;
         }
 
         .equipo-grid {
             display: flex;
             justify-content: center;
-            gap: 60px;
+            gap: 50px;
             flex-wrap: wrap;
             margin-top: 50px;
         }
 
-        .miembro {
-            width: 280px;
-        }
-
         .foto-perfil {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 3px solid #FFFFFF; /* Marco blanco */
-            margin: 0 auto 25px;
-            background-color: #333;
+            border: 4px solid #FFFFFF;
+            margin: 0 auto 20px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .foto-perfil img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- SECCIÓN 6: UBICACIÓN / FOOTER --- */
+        .footer {
+            background-color: #000;
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+            border-top: 1px solid #222;
         }
 
-        .miembro h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
+        .footer h3 { font-family: 'Playfair Display', serif; color: #FF0000; font-size: 24px; }
+        .footer p { font-size: 16px; color: #bbb; line-height: 1.6; }
 
-        .miembro p {
-            font-size: 14px;
-            color: #aaa;
-            font-weight: 300;
-        }
-
-        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        /* WHATSAPP */
         .whatsapp-float {
             position: fixed;
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             bottom: 30px;
             right: 30px;
             background-color: #25d366;
@@ -206,45 +161,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
-            z-index: 9999;
-            transition: transform 0.3s ease;
-            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.5);
         }
+        .whatsapp-icon { width: 35px; height: 35px; }
 
-        .whatsapp-float:hover {
-            transform: scale(1.15);
-        }
-
-        .whatsapp-icon {
-            width: 38px;
-            height: 38px;
-        }
-
-        /* Responsivo para móviles */
-        @media (max-width: 768px) {
-            .tecnologia { padding: 60px 5%; }
-            .tec-texto { text-align: center; padding-right: 0; }
-            .equipo-grid { gap: 40px; }
-            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
-        }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="logo-container">
+    <section class="portada">
+        <div>
             <span class="logo-cn">CN</span>
             <span class="logo-equipamientos">Equipamientos</span>
         </div>
+    </section>
 
-        <div class="historia-container">
-            <p class="historia-texto">
-                De parte de CN Equipamientos: <br>
-                “CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante. <br><br>
-                Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”
-            </p>
-        </div>
+    <section class="historia-seccion">
+        <p class="historia-texto">
+            De parte de CN Equipamientos: <br>
+            “CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante. <br><br>
+            Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”
+        </p>
     </section>
 
     <section class="tecnologia">
@@ -253,49 +191,55 @@
             <p>Transformamos tus ideas en realidad y diseños paramétricos, para darle más vida a tu hogar.</p>
         </div>
         <div class="tec-imagenes">
-            <div class="placeholder-img">Imagen CNC Izquierda</div>
-            <div class="placeholder-img">Imagen CNC Derecha</div>
+            <img src="imagenes/cnc1.jpg" alt="Tecnología CNC" class="img-cnc">
+            <img src="imagenes/cnc2.jpg" alt="Diseño Paramétrico" class="img-cnc">
         </div>
     </section>
 
     <section class="carrusel-section">
-        <h2 style="font-family: 'Playfair Display'; font-size: 32px; margin-bottom: 10px;">Portafolio de Proyectos</h2>
-        <p style="color: #666; margin-bottom: 30px;">Desliza para ver más</p>
+        <h2 style="font-family: 'Playfair Display';">Nuestros Proyectos</h2>
         <div class="carrusel-container">
-            <div class="carrusel-item">Foto Proyecto 1</div>
-            <div class="carrusel-item">Foto Proyecto 2</div>
-            <div class="carrusel-item">Foto Proyecto 3</div>
-            <div class="carrusel-item">Foto Proyecto 4</div>
-            <div class="carrusel-item">Foto Proyecto 5</div>
+            <img src="imagenes/proyecto1.jpg" class="carrusel-item" alt="Proyecto 1">
+            <img src="imagenes/proyecto2.jpg" class="carrusel-item" alt="Proyecto 2">
+            <img src="imagenes/proyecto3.jpg" class="carrusel-item" alt="Proyecto 3">
+            <img src="imagenes/proyecto4.jpg" class="carrusel-item" alt="Proyecto 4">
+            <img src="imagenes/proyecto5.jpg" class="carrusel-item" alt="Proyecto 5">
         </div>
     </section>
 
     <section class="equipo">
-        <h2 style="font-family: 'Playfair Display'; font-size: 35px; margin-bottom: 50px;">Nuestro Equipo</h2>
+        <h2 style="font-family: 'Playfair Display';">Nuestro Equipo</h2>
         <div class="equipo-grid">
             <div class="miembro">
-                <div class="foto-perfil">
-                    <img src="imagenes/mauricio.jpg" alt="Mauricio Narez"> </div>
+                <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio Narez"></div>
                 <h3>Mauricio Narez</h3>
                 <p>Director</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil">
-                    <img src="imagenes/valentinaa.jpg" alt="Valentina Narez"> </div>
+                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg" alt="Valentina Narez"></div>
                 <h3>Valentina Narez</h3>
                 <p>Encargada de taller, administración y diseño</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil">
-                    <img src="imagenes/santiago.jpg" alt="Santiago Nárez"> </div>
+                <div class="foto-perfil"><img src="imagenes/santiago.jpg" alt="Santiago Nárez"></div>
                 <h3>Santiago Nárez</h3>
                 <p>Encargado de taller</p>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/59895576448" class="whatsapp-float" target="_blank" title="Contactanos por WhatsApp">
-        <img src="imagenes/logo.jpg" alt="WhatsApp" class="whatsapp-icon">
+    <footer class="footer">
+        <h3>CN EQUIPAMIENTOS</h3>
+        <p>Montevideo, Uruguay</p>
+        <p>Dr. Vicente Basagoity 4425</p>
+        <p>Teléfono: 095 576 448</p>
+        <div style="margin-top: 20px; font-size: 12px; color: #555;">
+            &copy; 2024 CN Equipamientos - Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/59895576448" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
     </a>
 
 </body>
