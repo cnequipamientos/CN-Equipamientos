@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CN Equipamientos | Carpintería de Precisión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo-cn: #b31d1d;
+            --negro-fondo: #0a0a0a;
+            --negro-puro: #000000;
+            --blanco: #ffffff;
+            --gris-texto: #e0e0e0;
+            --verde-ws: #25D366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--negro-puro);
+            color: var(--blanco);
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 40px;
+        }
+
+        /* --- 1. HERO / LOGO DIGITAL HD --- */
+        .hero { align-items: center; text-align: center; background: var(--negro-puro); }
+        .logo-container { position: relative; width: 320px; height: 280px; margin-bottom: 40px; }
+        .letter-c { position: absolute; font-family: 'Playfair Display', serif; font-size: 200px; color: var(--rojo-cn); left: 0; top: 0; z-index: 1; line-height: 1; }
+        .letter-n { position: absolute; font-family: 'Playfair Display', serif; font-size: 200px; color: var(--blanco); right: 40px; top: 40px; z-index: 3; line-height: 1; }
+        .red-frame { position: absolute; border-top: 3.5px solid var(--rojo-cn); border-right: 3.5px solid var(--rojo-cn); width: 200px; height: 200px; right: 0; top: 30px; z-index: 2; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 30px; letter-spacing: 9px; border-top: 2px solid var(--blanco); padding-top: 15px; margin-top: 20px; text-transform: uppercase; font-weight: 400; width: 100%; position: absolute; bottom: -60px; }
+
+        /* --- 2. SOBRE NOSOTROS --- */
+        .about { max-width: 1100px; margin: 0 auto; }
+        .intro-label { font-size: 12px; font-style: italic; color: #777; margin-bottom: 20px; text-align: left; font-family: Arial, sans-serif; }
+        .quote-box { position: relative; padding: 50px; border-left: 3px solid var(--rojo-cn); background: rgba(255, 255, 255, 0.02); }
+        .big-quotes { font-family: 'Playfair Display', serif; font-size: 90px; color: var(--rojo-cn); position: absolute; top: -20px; left: 15px; opacity: 0.3; transform: rotate(-10deg); }
+        .historia { font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.9; color: var(--gris-texto); }
+
+        /* --- 3. TECNOLOGÍA CNC / KERFING --- */
+        .cnc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .cnc-text h2 { font-size: 40px; border-left: 6px solid var(--rojo-cn); padding-left: 25px; line-height: 1.2; margin-bottom: 20px; }
+        .cnc-images { display: flex; align-items: flex-end; gap: 20px; }
+        .img-kerfing-main { width: 70%; border-radius: 40px 40px 0 0; border: 1px solid #333; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+        .img-kerfing-sub { width: 30%; border-radius: 10px; border: 1px solid #333; }
+
+        /* --- 4. DEMOSTRACIÓN ENCHAPADORA --- */
+        .demo-section { background: #050505; text-align: center; }
+        .enchapadora-img { width: 100%; max-width: 900px; border-radius: 15px; margin: 40px auto; border: 2px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+
+        /* --- 5. CARRUSEL PROYECTOS --- */
+        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scrollbar-width: none; }
+        .carousel-item { min-width: 320px; height: 450px; background: #111; border-radius: 15px; overflow: hidden; }
+        .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- 6. EQUIPO FINAL --- */
+        .team-section { text-align: center; padding-bottom: 120px; }
+        .team-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 60px; }
+        .member { width: 280px; text-align: center; }
+        .member img { width: 190px; height: 190px; border-radius: 50%; border: 3px solid var(--rojo-cn); object-fit: cover; margin-bottom: 25px; filter: grayscale(20%); transition: 0.3s; }
+        .member img:hover { filter: grayscale(0%); transform: translateY(-10px); }
+        .member h3 { font-size: 22px; margin-bottom: 5px; }
+        .member p { color: var(--rojo-cn); font-weight: bold; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .member span { font-size: 13px; color: #888; display: block; margin-top: 5px; }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        .ws-float { position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: var(--verde-ws); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 9999; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .ws-float img { width: 100%; height: 100%; border-radius: 50%; }
+
+        @media (max-width: 850px) {
+            .cnc-grid { grid-template-columns: 1fr; }
+            .cnc-images { justify-content: center; }
+            section { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="logo-container">
+            <div class="letter-c">C</div>
+            <div class="letter-n">N</div>
+            <div class="red-frame"></div>
+            <div class="logo-text">Equipamientos</div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="intro-label">De parte de CN Equipamientos</div>
+        <div class="quote-box">
+            <span class="big-quotes">“</span>
+            <p class="historia">
+                CN Equipamientos nació en un ambiente familiar, la herencia de un abuelo en la mente de un niño, una idea que empezó a dar vueltas en un viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que nos tiene fe en lo que entregamos, se va para adelante.<br><br>
+                Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="cnc-grid">
+            <div class="cnc-text">
+                <h2>Tecnología en CNC de calidad premium, no es solo MDF</h2>
+            </div>
+            <div class="cnc-images">
+                <img src="cocina-gris.jpg" alt="Cocina CNC" class="img-kerfing-main">
+                <img src="detalle-kerfing.jpg" alt="MDF Kerfing" class="img-kerfing-sub">
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2 style="font-family: 'Playfair Display'; font-size: 30px;">Precisión en cada Canto</h2>
+        <img src="manos-enchapadora.jpg" alt="Proceso de enchapado" class="enchapadora-img">
+    </section>
+
+    <section style="background: #000;">
+        <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Playfair Display';">Nuestros Trabajos Realizados</h2>
+        <div class="carousel-container">
+            <div class="carousel-item"><img src="proyecto1.jpg" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="proyecto2.jpg" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="proyecto3.jpg" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="proyecto4.jpg" alt="Proyecto"></div>
+            <div class="carousel-item"><img src="proyecto5.jpg" alt="Proyecto"></div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2 style="font-family: 'Playfair Display'; font-size: 36px;">El Equipo</h2>
+        <div class="team-grid">
+            <div class="member">
+                <img src="mauricio.jpg" alt="Mauricio Nárez">
+                <h3>Mauricio Nárez</h3>
+                <p>Director</p>
+            </div>
+            <div class="member">
+                <img src="valentina.jpg" alt="Valentina Nárez">
+                <h3>Valentina Nárez</h3>
+                <p>Encargada de Taller</p>
+                <span>Administración y Diseño</span>
+            </div>
+            <div class="member">
+                <img src="santiago.jpg" alt="Santiago Nárez">
+                <h3>Santiago Nárez</h3>
+                <p>Encargado de Taller</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/59895576448" class="ws-float" target="_blank">
+        <img src="whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+</body>
+</html>
