@@ -15,7 +15,7 @@
             background-color: #000;
         }
 
-        /* --- SECCIÓN 1: PORTADA --- */
+        /* --- SECCIÓN 1: PORTADA (Adaptable) --- */
         .portada {
             background-color: #000;
             height: 100vh;
@@ -30,27 +30,50 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: box-shadow 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out; /* Transición para todo el wrapper */
             padding: 20px;
             border-radius: 15px;
+            cursor: pointer;
+        }
+
+        /* --- AGREGADO EFECTO LED AL WRAPPER --- */
+        .logo-wrapper:hover {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1); /* Halo suave de fondo */
         }
 
         .logo-cn {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(80px, 18vw, 150px);
+            font-size: clamp(80px, 18vw, 150px); /* Tamaño fluido */
             color: #FF0000;
             line-height: 0.8;
             letter-spacing: 5px;
+            transition: 0.3s; /* Transición suave */
+            /* Brillo base muy suave */
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.2)); 
+        }
+
+        /* --- AGREGADO EFECTO LED ROJO A CN --- */
+        .logo-wrapper:hover .logo-cn {
+            filter: drop-shadow(0 0 15px rgba(255, 0, 0, 1)) 
+                    drop-shadow(0 0 30px rgba(255, 0, 0, 0.8));
         }
 
         .logo-equipamientos {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(18px, 4vw, 40px);
+            font-size: clamp(18px, 4vw, 40px); /* Tamaño fluido */
             color: #FFFFFF;
             text-transform: uppercase;
             letter-spacing: clamp(5px, 2vw, 15px);
             font-weight: 700;
             margin-top: 15px;
+            transition: 0.3s; /* Transición suave */
+            /* Brillo base muy suave */
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+        }
+
+        /* --- AGREGADO EFECTO LED BLANCO A EQUIPAMIENTOS --- */
+        .logo-wrapper:hover .logo-equipamientos {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
         }
 
         /* --- SECCIÓN 2: HISTORIA --- */
@@ -68,18 +91,18 @@
             line-height: 2;
         }
 
-        /* --- SECCIÓN 3: TECNOLOGÍA (Arreglado para móvil) --- */
+        /* --- SECCIÓN 3: TECNOLOGÍA (Responsivo) --- */
         .tecnologia {
             background-color: #F5F5F0; 
-            padding: 60px 8%;
+            padding: 80px 8%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
         }
 
-        .tec-texto { flex: 1; min-width: 300px; text-align: center; }
+        .tec-texto { flex: 1; min-width: 300px; }
         .tec-texto h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 38px); color: #1a1a1a; }
 
         .tec-imagenes { 
@@ -87,18 +110,16 @@
             display: flex; 
             gap: 15px; 
             width: 100%;
-            justify-content: center;
         }
 
         .img-cnc { 
             width: 50%; 
-            height: 300px; 
+            height: clamp(200px, 40vh, 350px); 
             object-fit: cover; 
             border: 1px solid #dcdcdc; 
-            border-radius: 5px;
         }
 
-        /* --- SECCIÓN 4: CARRUSEL LOGOS (Mantenido) --- */
+        /* --- SECCIÓN 4: CARRUSEL LOGOS --- */
         .carrusel-section {
             background-color: #fff;
             padding: 50px 0;
@@ -112,31 +133,27 @@
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-180px * 10)); } }
 
-        /* --- SECCIÓN 5: EQUIPO (En fila con scroll lateral en móvil) --- */
+        /* --- SECCIÓN 5: EQUIPO (Responsivo) --- */
         .equipo {
-            background: #000;
-            padding: 60px 5%;
+            background: linear-gradient(145deg, #0a0a0a 0%, #000000 100%);
+            padding: 80px 5%;
             text-align: center;
             color: white;
         }
 
         .equipo-grid { 
             display: flex; 
-            gap: 30px; 
-            overflow-x: auto; /* Permite scroll horizontal */
-            padding: 20px 10px;
-            justify-content: flex-start;
-            -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+            justify-content: center; 
+            gap: 40px; 
+            flex-wrap: wrap; 
+            margin-top: 40px; 
         }
 
-        /* Oculta la barra de scroll en navegadores modernos */
-        .equipo-grid::-webkit-scrollbar { display: none; }
-
-        .miembro { flex: 0 0 250px; } /* Cada miembro ocupa un ancho fijo en la fila */
-        .foto-perfil { width: 170px; height: 170px; border-radius: 50%; border: 3px solid #FFFFFF; margin: 0 auto 15px; overflow: hidden; }
+        .miembro { width: 250px; }
+        .foto-perfil { width: 180px; height: 180px; border-radius: 50%; border: 3px solid #FFFFFF; margin: 0 auto 15px; overflow: hidden; }
         .foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- SECCIÓN 6: FOOTER --- */
+        /* --- SECCIÓN 6: FOOTER ADAPTABLE --- */
         .footer {
             background-color: #000;
             color: white;
@@ -157,7 +174,11 @@
         .footer-column h4 { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #FF0000; margin-bottom: 15px; text-transform: uppercase; }
         .footer-column p { font-size: 14px; color: #bbb; margin: 5px 0; }
 
-        .footer-divider { width: 2px; background-color: #ffffff; height: 100px; }
+        .footer-divider {
+            width: 2px;
+            background-color: #ffffff;
+            height: 100px;
+        }
 
         /* WHATSAPP */
         .whatsapp-float {
@@ -169,21 +190,15 @@
 
         /* --- MEDIA QUERIES PARA MÓVIL --- */
         @media (max-width: 768px) {
-            .tecnologia { padding: 40px 5%; text-align: center; flex-direction: column; }
-            .tec-imagenes { flex-direction: column; align-items: center; }
-            .img-cnc { width: 100%; max-width: 400px; height: 250px; }
+            .tecnologia { padding: 50px 5%; text-align: center; }
+            .tec-imagenes { flex-direction: column; }
+            .img-cnc { width: 100%; height: 250px; }
             
             .footer-container { flex-direction: column; text-align: center; }
-            .footer-divider { display: none; } 
+            .footer-divider { display: none; } /* Ocultamos la línea en móvil */
             .footer-column { padding: 20px 0; width: 100%; }
-
-            .equipo-grid { justify-content: flex-start; } /* Asegura el inicio del scroll */
-        }
-
-        /* Para pantallas grandes, centramos el equipo */
-        @media (min-width: 1024px) {
-            .equipo-grid { justify-content: center; overflow: hidden; }
-            .tec-texto { text-align: left; }
+            
+            .historia-seccion { padding: 60px 8%; text-align: center; }
         }
     </style>
 </head>
@@ -199,7 +214,8 @@
     <section class="historia-seccion">
         <p class="historia-texto">
             De parte de CN Equipamientos: <br>
-            “CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería... Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”
+            "CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante.
+              Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte."
         </p>
     </section>
 
@@ -237,8 +253,7 @@
     </section>
 
     <section class="equipo">
-        <h2 style="font-family: 'Playfair Display'; margin-bottom: 10px;">Nuestro Equipo</h2>
-        <p style="color: #666; font-size: 12px; margin-bottom: 20px;">(Desliza para ver más)</p>
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Nuestro Equipo</h2>
         <div class="equipo-grid">
             <div class="miembro">
                 <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio"></div>
@@ -265,7 +280,9 @@
                 <p>Montevideo, Uruguay</p>
                 <p>Dr. Vicente Basagoity 4425</p>
             </div>
+
             <div class="footer-divider"></div>
+
             <div class="footer-column">
                 <h4>Contactos</h4>
                 <p>Teléfono: 095 576 448</p>
@@ -273,7 +290,7 @@
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px; font-size: 11px; color: #444; letter-spacing: 1px;">
-            &copy; 2026 CN EQUIPAMIENTOS
+            &copy; 2024 CN EQUIPAMIENTOS
         </div>
     </footer>
 
