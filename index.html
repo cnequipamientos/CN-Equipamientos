@@ -15,7 +15,7 @@
             background-color: #000;
         }
 
-        /* --- SECCIÓN 1: PORTADA (Adaptable) --- */
+        /* --- SECCIÓN 1: PORTADA --- */
         .portada {
             background-color: #000;
             height: 100vh;
@@ -182,28 +182,34 @@
         }
         .whatsapp-icon { width: 30px; height: 30px; }
 
-        /* --- MEDIA QUERIES PARA MÓVIL (CORREGIDO) --- */
+        /* --- ESTO ES LO QUE ARREGLA EL CELULAR (FORZADO) --- */
         @media (max-width: 768px) {
-            /* Fotos CNC: Una debajo de otra y completas */
-            .tecnologia { padding: 50px 5%; text-align: center; }
-            .tec-imagenes { flex-direction: column; gap: 20px; }
-            .img-cnc { width: 100%; height: auto; min-height: 250px; }
+            /* CNC: Imagenes una abajo de otra y completas */
+            .tecnologia { flex-direction: column !important; padding: 40px 5% !important; }
+            .tec-imagenes { flex-direction: column !important; gap: 20px !important; }
+            .img-cnc { 
+                width: 100% !important; 
+                height: auto !important; 
+                min-height: 250px !important; 
+                object-fit: contain !important; /* Asegura que no se corte */
+                background: #F5F5F0;
+            }
             
-            /* Equipo: Una sola fila con scroll horizontal */
+            /* EQUIPO: Uno al lado del otro con scroll lateral */
             .equipo-grid { 
                 flex-wrap: nowrap !important; 
-                overflow-x: auto !important; 
+                overflow-x: scroll !important; 
                 justify-content: flex-start !important; 
-                padding: 20px 10px;
-                gap: 20px;
+                padding: 20px 0 !important;
                 -webkit-overflow-scrolling: touch;
+                gap: 15px !important;
             }
-            .miembro { flex: 0 0 250px; } /* Mantiene el tamaño para que se deslicen */
+            .miembro { 
+                flex: 0 0 280px !important; /* Fuerza el ancho para que el scroll funcione */
+            }
 
-            .footer-container { flex-direction: column; text-align: center; }
-            .footer-divider { display: none; }
-            .footer-column { padding: 20px 0; width: 100%; }
-            .historia-seccion { padding: 60px 8%; text-align: center; }
+            .footer-container { flex-direction: column !important; }
+            .footer-divider { display: none !important; }
         }
     </style>
 </head>
@@ -219,8 +225,7 @@
     <section class="historia-seccion">
         <p class="historia-texto">
             De parte de CN Equipamientos: <br>
-            "CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante.
-              
+            "CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante.<br><br>
             Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte."
         </p>
     </section>
@@ -286,9 +291,7 @@
                 <p>Montevideo, Uruguay</p>
                 <p>Dr. Vicente Basagoity 4425</p>
             </div>
-
             <div class="footer-divider"></div>
-
             <div class="footer-column">
                 <h4>Contactos</h4>
                 <p>Teléfono: 095 576 448</p>
