@@ -15,7 +15,7 @@
             background-color: #000;
         }
 
-        /* --- SECCIÓN 1: PORTADA (Solo Logo) --- */
+        /* --- SECCIÓN 1: PORTADA (Con Efecto LED al Hover) --- */
         .portada {
             background-color: #000;
             height: 100vh;
@@ -24,6 +24,24 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: relative;
+            cursor: pointer; /* Indica que es interactivo */
+        }
+
+        /* Contenedor del logo para centrar los efectos */
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 15px;
+            transition: box-shadow 0.4s ease-in-out; /* Transición suave para el halo general */
+        }
+
+        /* Efecto LED de fondo general al pasar el mouse por el área del logo */
+        .logo-wrapper:hover {
+            box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.1); /* Halo suave blanco/gris de fondo */
         }
 
         .logo-cn {
@@ -33,6 +51,15 @@
             line-height: 0.8;
             letter-spacing: 5px;
             display: block;
+            transition: filter 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.2)); /* Brillo base muy suave */
+        }
+
+        /* Efecto LED ROJO para CN al hacer hover en el wrapper */
+        .logo-wrapper:hover .logo-cn {
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1)) 
+                    drop-shadow(0 0 30px rgba(255, 0, 0, 0.8));
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
 
         .logo-equipamientos {
@@ -42,6 +69,16 @@
             text-transform: uppercase;
             letter-spacing: 15px;
             font-weight: 700;
+            margin-top: 10px;
+            transition: filter 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); /* Brillo base muy suave */
+        }
+
+        /* Efecto LED BLANCO para Equipamientos al hacer hover en el wrapper */
+        .logo-wrapper:hover .logo-equipamientos {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) 
+                    drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         /* --- SECCIÓN 2: LA HISTORIA --- */
@@ -199,7 +236,7 @@
 <body>
 
     <section class="portada">
-        <div>
+        <div class="logo-wrapper">
             <span class="logo-cn">CN</span>
             <span class="logo-equipamientos">Equipamientos</span>
         </div>
@@ -208,8 +245,8 @@
     <section class="historia-seccion">
         <p class="historia-texto">
             De parte de CN Equipamientos: <br>
-            “CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante. <br><br>
-            Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 13px;">“CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante. <br><br>
+            Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”</h2>
         </p>
     </section>
 
@@ -225,7 +262,7 @@
     </section>
 
     <section class="carrusel-section">
-        <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Nuestros Proyectos</h2>
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Nuestros Proyectos con marcas</h2>
         <div class="slider">
             <div class="slider-track">
                 <div class="slide"><img src="imagenes/proyecto1.jpg" alt="1"></div>
