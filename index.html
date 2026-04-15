@@ -3,156 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CN Equipamientos | Carpintería de Precisión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>CN Equipamientos - Carpintería de Diseño</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --rojo-cn: #b31d1d;
-            --negro-fondo: #0a0a0a;
-            --blanco-hueso: #f5f5f0;
-            --gris-texto: #e0e0e0;
-            --verde-ws: #25D366;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--negro-fondo);
-            color: white;
-            font-family: 'Roboto', sans-serif;
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* PORTADA CON LOGO PNG */
+        /* --- SECCIÓN 1: HERO / INICIO (Fondo Negro) --- */
         .hero {
-            height: 100vh;
+            background-color: #000;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            color: white;
+            padding: 40px 20px;
         }
 
-        .logo-principal {
-            max-width: 400px;
-            width: 90%;
-            height: auto;
+        .logo-container {
+            margin-bottom: 60px;
+        }
+
+        .logo-cn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(80px, 15vw, 120px);
+            color: #FF0000;
+            display: block;
+            line-height: 0.8;
+            letter-spacing: 5px;
+        }
+
+        .logo-equipamientos {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(20px, 4vw, 35px);
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            font-weight: 700;
+        }
+
+        .historia-container {
+            max-width: 700px;
+            text-align: left;
+            align-self: flex-start;
+            margin-left: 5%;
+            margin-top: 40px;
+        }
+
+        .historia-texto {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-style: italic;
+            color: #d1d1d1;
+            line-height: 1.8;
+        }
+
+        /* --- SECCIÓN 2: TECNOLOGÍA (Blanco Hueso) --- */
+        .tecnologia {
+            background-color: #F5F5F0; /* Blanco Hueso */
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .tec-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tec-texto h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #1a1a1a;
             margin-bottom: 20px;
         }
 
-        .intro-emotiva {
-            max-width: 700px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            font-style: italic;
-            border-left: 3px solid var(--rojo-cn);
-            padding-left: 25px;
-            text-align: left;
-            color: #ccc;
-            margin-top: 30px;
+        .tec-imagenes {
+            flex: 1.2;
+            display: flex;
+            gap: 20px;
+            min-width: 300px;
         }
 
-        /* SECCIÓN CNC - BLANCO HUESO */
-        .cnc-section {
-            background-color: var(--blanco-hueso);
-            color: #333;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        /* SECCIÓN EQUIPO - NEGRO MARMOLADO */
-        .team-section {
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
-
-        .member img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--rojo-cn);
-            margin-bottom: 15px;
-        }
-
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--verde-ws);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
+        .placeholder-img {
+            background-color: #e0e0da;
+            width: 100%;
+            height: 350px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
+            justify-content: center;
+            border: 1px solid #dcdcdc;
+            color: #888;
+            font-weight: bold;
         }
 
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
+        /* --- SECCIÓN 3: CARRUSEL --- */
+        .carrusel-section {
+            background-color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .carrusel-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 40px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+        }
+
+        .carrusel-item {
+            min-width: 350px;
+            height: 450px;
+            background-color: #f0f0f0;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        /* --- SECCIÓN 4: EQUIPO (Efecto Mármol Negro) --- */
+        .equipo {
+            background-color: #000;
+            /* Simulación de mármol con gradientes y líneas gris oscuro */
+            background-image: 
+                linear-gradient(125deg, #0a0a0a 0%, #000000 50%, #0d0d0d 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(50, 50, 50, 0.1) 101px, rgba(50, 50, 50, 0.1) 102px);
+            border-top: 2px solid #222;
+            padding: 100px 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .equipo-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .miembro {
+            width: 280px;
+        }
+
+        .foto-perfil {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 3px solid #FFFFFF; /* Marco blanco */
+            margin: 0 auto 25px;
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .foto-perfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .miembro h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .miembro p {
+            font-size: 14px;
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+        }
+
+        .whatsapp-icon {
+            width: 38px;
+            height: 38px;
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 768px) {
+            .tecnologia { padding: 60px 5%; }
+            .tec-texto { text-align: center; padding-right: 0; }
+            .equipo-grid { gap: 40px; }
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <img src="imagenes/IMG_1550.PNG" alt="CN Equipamientos Logo" class="logo-principal">
-        
-        <div class="intro-emotiva">
-            <p>
-                CN Equipamientos nació casi como un juego, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. 
-                En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo 
-                de la gente que te tiene fe, se va para adelante.
-            </p>
-            <p style="margin-top: 15px;">
-                Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en 
-                MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo 
-                saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya.
+        <div class="logo-container">
+            <span class="logo-cn">CN</span>
+            <span class="logo-equipamientos">Equipamientos</span>
+        </div>
+
+        <div class="historia-container">
+            <p class="historia-texto">
+                De parte de CN Equipamientos: <br>
+                “CN Equipamientos nació de la herencia de un abuelo, hacia su nieto, una idea que empezó a dar vueltas en aquel viejo taller de tapicería. En ese entonces ni nos imaginábamos llegar a donde estamos hoy. Pero si algo aprendimos, es que con el apoyo de la gente que te tiene fé, se va para adelante. <br><br>
+                Vivimos en un país hermoso y natural, y para nosotros, acompañar esa calidez uruguaya con proyectos en MDF que transforman una casa, es algo espectacular. Somos carpinteros de alma y nos llena de orgullo saber que en cada mueble que entregamos, dejamos una marca de nuestra familia en la suya. Gracias por dejarnos ser parte.”
             </p>
         </div>
     </section>
 
-    <section class="cnc-section">
-        <h2>Tecnología y Precisión CNC</h2>
-        <p>Transformamos tus ideas en realidad con cortes milimétricos y diseños paramétricos únicos en el país.</p>
-        </section>
+    <section class="tecnologia">
+        <div class="tec-texto">
+            <h2>Tecnología y precisión en CNC</h2>
+            <p>Transformamos tus ideas en realidad y diseños paramétricos, para darle más vida a tu hogar.</p>
+        </div>
+        <div class="tec-imagenes">
+            <div class="placeholder-img">Imagen CNC Izquierda</div>
+            <div class="placeholder-img">Imagen CNC Derecha</div>
+        </div>
+    </section>
 
-    <section class="team-section">
-        <h2>El Equipo</h2>
-        <div class="team-grid">
-            <div class="member">
-                <img src="imagenes/mauricio.jpg" alt="Mauricio Nárez">
-                <h3>Mauricio Nárez</h3>
+    <section class="carrusel-section">
+        <h2 style="font-family: 'Playfair Display'; font-size: 32px; margin-bottom: 10px;">Portafolio de Proyectos</h2>
+        <p style="color: #666; margin-bottom: 30px;">Desliza para ver más</p>
+        <div class="carrusel-container">
+            <div class="carrusel-item">Foto Proyecto 1</div>
+            <div class="carrusel-item">Foto Proyecto 2</div>
+            <div class="carrusel-item">Foto Proyecto 3</div>
+            <div class="carrusel-item">Foto Proyecto 4</div>
+            <div class="carrusel-item">Foto Proyecto 5</div>
+        </div>
+    </section>
+
+    <section class="equipo">
+        <h2 style="font-family: 'Playfair Display'; font-size: 35px; margin-bottom: 50px;">Nuestro Equipo</h2>
+        <div class="equipo-grid">
+            <div class="miembro">
+                <div class="foto-perfil">
+                    <img src="mauricio.jpg" alt="Mauricio Narez"> </div>
+                <h3>Mauricio Narez</h3>
                 <p>Director</p>
             </div>
-            <div class="member">
-                <img src="imagenes/valentinaa.jpg" alt="Valentina Nárez">
-                <h3>Valentina Nárez</h3>
-                <p>Encargada de Taller / Diseño</p>
+            <div class="miembro">
+                <div class="foto-perfil">
+                    <img src="valentina.jpg" alt="Valentina Narez"> </div>
+                <h3>Valentina Narez</h3>
+                <p>Encargada de taller, administración y diseño</p>
             </div>
-            <div class="member">
-                <img src="imagenes/santiago.jpg" alt="Santiago Nárez">
+            <div class="miembro">
+                <div class="foto-perfil">
+                    <img src="santiago.jpg" alt="Santiago Nárez"> </div>
                 <h3>Santiago Nárez</h3>
-                <p>Encargado de Taller</p>
+                <p>Encargado de taller</p>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/598TU_NUMERO" class="whatsapp-btn" target="_blank">
-        <span>Escribinos por WhatsApp</span>
+    <a href="https://wa.me/59895576448" class="whatsapp-float" target="_blank" title="Contactanos por WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
     </a>
 
 </body>
