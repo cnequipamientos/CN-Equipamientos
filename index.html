@@ -15,7 +15,7 @@
             background-color: #000;
         }
 
-        /* --- PORTADA CON EFECTO LED --- */
+        /* --- PORTADA --- */
         .portada {
             background-color: #000;
             height: 100vh;
@@ -24,24 +24,12 @@
             align-items: center;
             text-align: center;
         }
-
-        .logo-wrapper {
-            padding: 20px;
-            cursor: pointer;
-        }
-
         .logo-cn {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(80px, 15vw, 150px);
             color: #FF0000;
             line-height: 0.8;
-            transition: 0.3s;
         }
-
-        .logo-wrapper:hover .logo-cn {
-            filter: drop-shadow(0 0 20px #FF0000);
-        }
-
         .logo-equipamientos {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(16px, 4vw, 40px);
@@ -51,95 +39,105 @@
             margin-top: 10px;
         }
 
-        /* --- TECNOLOGÍA (CORREGIDO PARA MÓVIL) --- */
+        /* --- HISTORIA --- */
+        .historia-seccion {
+            background-color: #000;
+            padding: 60px 10%;
+            color: #d1d1d1;
+            font-style: italic;
+            line-height: 2;
+            font-size: 14px;
+        }
+
+        /* --- TECNOLOGÍA (Arreglado para que no se corte) --- */
         .tecnologia {
             background-color: #F5F5F0; 
-            padding: 60px 5%;
+            padding: 50px 5%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 30px;
         }
-
-        .tec-texto { text-align: center; width: 100%; }
-        .tec-texto h2 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 15px; }
-
+        .tec-texto { text-align: center; }
+        .tec-texto h2 { font-family: 'Playfair Display', serif; font-size: 28px; }
+        
         .tec-imagenes { 
             display: flex; 
-            flex-wrap: wrap; /* Permite que bajen si no entran */
-            gap: 15px; 
-            justify-content: center;
+            flex-direction: column; /* Una debajo de otra en móvil */
+            gap: 20px; 
             width: 100%;
+            align-items: center;
         }
-
         .img-cnc { 
-            width: 100%; /* Por defecto una bajo la otra en móvil */
-            max-width: 450px;
-            height: 300px;
-            object-fit: cover; 
-            border-radius: 5px;
+            width: 100%; 
+            max-width: 500px;
+            height: auto; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* --- EQUIPO (CORREGIDO PARA FILA) --- */
+        /* --- CARRUSEL DE MARCAS (Restaurado y Corregido) --- */
+        .carrusel-section {
+            background-color: #fff;
+            padding: 40px 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .slider { width: 100%; height: 100px; position: relative; display: flex; align-items: center; }
+        .slider-track { 
+            display: flex; 
+            width: calc(150px * 20); 
+            animation: scroll 30s linear infinite; 
+        }
+        .slide { width: 150px; padding: 0 20px; display: flex; align-items: center; }
+        .slide img { width: 100%; height: auto; filter: grayscale(100%); opacity: 0.6; }
+
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-150px * 10)); } }
+
+        /* --- EQUIPO (En fila con scroll horizontal en móvil) --- */
         .equipo {
             background: #000;
             padding: 60px 5%;
             text-align: center;
             color: white;
         }
-
         .equipo-grid { 
             display: flex; 
-            flex-wrap: nowrap; /* Fuerza una al lado de la otra */
-            overflow-x: auto; /* Permite scroll horizontal si son muy grandes */
-            gap: 20px; 
-            padding: 20px 0;
+            flex-wrap: nowrap; 
+            overflow-x: auto; 
+            gap: 30px; 
+            padding-bottom: 20px;
             justify-content: flex-start;
+            -webkit-overflow-scrolling: touch;
         }
+        /* Ocultar barra de scroll pero mantener funcionalidad */
+        .equipo-grid::-webkit-scrollbar { display: none; }
 
-        .miembro { 
-            flex: 0 0 250px; /* Tamaño fijo para cada miembro */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        .miembro { flex: 0 0 220px; text-align: center; }
         .foto-perfil { 
-            width: 150px; 
-            height: 150px; 
-            border-radius: 50%; 
-            border: 3px solid #FFFFFF; 
-            overflow: hidden; 
-            margin-bottom: 15px;
+            width: 160px; height: 160px; 
+            border-radius: 50%; border: 3px solid #fff; 
+            margin: 0 auto 15px; overflow: hidden; 
         }
-        
         .foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- FOOTER REORGANIZADO --- */
+        /* --- FOOTER (Direcciones | Contactos) --- */
         .footer {
             background-color: #000;
             color: white;
-            padding: 40px 10%;
+            padding: 50px 10%;
             border-top: 1px solid #222;
         }
-
         .footer-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
         }
-
-        .footer-column { flex: 1; min-width: 250px; text-align: center; }
-        .footer-column h4 { color: #FF0000; margin-bottom: 10px; }
-        .footer-column p { font-size: 14px; color: #bbb; margin: 5px 0; }
-
-        .footer-divider {
-            width: 2px;
-            background-color: #ffffff;
-            height: 80px;
-        }
+        .footer-column { flex: 1; min-width: 200px; text-align: center; }
+        .footer-column h4 { color: #FF0000; text-transform: uppercase; margin-bottom: 15px; }
+        .footer-divider { width: 2px; background-color: #fff; height: 100px; }
 
         /* WHATSAPP */
         .whatsapp-float {
@@ -148,11 +146,14 @@
             align-items: center; justify-content: center; z-index: 1000;
         }
 
-        /* --- AJUSTES TABLETA/PC --- */
+        /* --- AJUSTES PARA PC --- */
         @media (min-width: 768px) {
-            .tecnologia { flex-direction: row; text-align: left; }
-            .img-cnc { width: calc(50% - 15px); }
-            .equipo-grid { justify-content: center; overflow-x: visible; }
+            .tecnologia { flex-direction: row; justify-content: space-between; }
+            .tec-texto { text-align: left; flex: 1; }
+            .tec-imagenes { flex-direction: row; flex: 1.5; }
+            .img-cnc { width: 50%; }
+            .equipo-grid { justify-content: center; overflow: hidden; }
+            .footer-column { text-align: left; }
         }
 
         @media (max-width: 600px) {
@@ -164,10 +165,14 @@
 <body>
 
     <section class="portada">
-        <div class="logo-wrapper">
-            <span class="logo-cn">CN</span>
-            <span class="logo-equipamientos">Equipamientos</span>
+        <div>
+            <div class="logo-cn">CN</div>
+            <div class="logo-equipamientos">Equipamientos</div>
         </div>
+    </section>
+
+    <section class="historia-seccion">
+        <p>“CN Equipamientos nació de la herencia de un abuelo hacia su nieto... acompañar esa calidez uruguaya con proyectos que transforman una casa es algo espectacular.”</p>
     </section>
 
     <section class="tecnologia">
@@ -176,8 +181,36 @@
             <p>Transformamos tus ideas en realidad para darle más vida a tu hogar.</p>
         </div>
         <div class="tec-imagenes">
-            <img src="imagenes/kerfing.jpg" alt="Tecnología CNC" class="img-cnc">
-            <img src="imagenes/curvas.jpg" alt="Diseño Paramétrico" class="img-cnc">
+            <img src="imagenes/kerfing.jpg" alt="CNC 1" class="img-cnc">
+            <img src="imagenes/curvas.jpg" alt="CNC 2" class="img-cnc">
+        </div>
+    </section>
+
+    <section class="carrusel-section">
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px; font-size: 20px;">Nuestros Proyectos Reconocidos</h2>
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide"><img src="imagenes/sucan.jpg" alt="Sucan"></div>
+                <div class="slide"><img src="imagenes/merrell.jpg" alt="Merrell"></div>
+                <div class="slide"><img src="imagenes/lolita.jpg" alt="Lolita"></div>
+                <div class="slide"><img src="imagenes/columbia.jpg" alt="Columbia"></div>
+                <div class="slide"><img src="imagenes/proyecto5.jpg" alt="5"></div>
+                <div class="slide"><img src="imagenes/proyecto6.jpg" alt="6"></div>
+                <div class="slide"><img src="imagenes/proyecto7.jpg" alt="7"></div>
+                <div class="slide"><img src="imagenes/proyecto8.jpg" alt="8"></div>
+                <div class="slide"><img src="imagenes/proyecto9.jpg" alt="9"></div>
+                <div class="slide"><img src="imagenes/proyecto10.jpg" alt="10"></div>
+                <div class="slide"><img src="imagenes/sucan.jpg"></div>
+                <div class="slide"><img src="imagenes/merrell.jpg"></div>
+                <div class="slide"><img src="imagenes/lolita.jpg"></div>
+                <div class="slide"><img src="imagenes/columbia.jpg"></div>
+                <div class="slide"><img src="imagenes/proyecto5.jpg"></div>
+                <div class="slide"><img src="imagenes/proyecto6.jpg"></div>
+                <div class="slide"><img src="imagenes/proyecto7.jpg"></div>
+                <div class="slide"><img src="imagenes/proyecto8.jpg"></div>
+                <div class="slide"><img src="imagenes/proyecto9.jpg"></div>
+                <div class="slide"><img src="imagenes/proyecto10.jpg"></div>
+            </div>
         </div>
     </section>
 
@@ -185,17 +218,17 @@
         <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Nuestro Equipo</h2>
         <div class="equipo-grid">
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/mauricio.jpg" alt="Mauricio Narez"></div>
+                <div class="foto-perfil"><img src="imagenes/mauricio.jpg"></div>
                 <h3>Mauricio Narez</h3>
                 <p>Director</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg" alt="Valentina Narez"></div>
+                <div class="foto-perfil"><img src="imagenes/valentinaa.jpg"></div>
                 <h3>Valentina Narez</h3>
                 <p>Taller, Administración y Diseño</p>
             </div>
             <div class="miembro">
-                <div class="foto-perfil"><img src="imagenes/santiago.jpg" alt="Santiago Nárez"></div>
+                <div class="foto-perfil"><img src="imagenes/santiago.jpg"></div>
                 <h3>Santiago Nárez</h3>
                 <p>Encargado de Taller</p>
             </div>
@@ -219,7 +252,7 @@
     </footer>
 
     <a href="https://wa.me/59895576448" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30">
     </a>
 
 </body>
